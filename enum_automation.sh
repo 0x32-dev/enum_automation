@@ -11,8 +11,8 @@ fi
 host=$1
 
 # Run the nmap scan against the provided host
-echo "Running nmap scan against $host..."
-nmap "$host"
+echo "Running sC, sV, -O, -p- $host...Outputting to file 'nmap.all'"
+nmap -sC -sV -p- -O "$host" | tee nmap.all
 
 # Check if nmap command succeeded
 if [ $? -eq 0 ]; then
